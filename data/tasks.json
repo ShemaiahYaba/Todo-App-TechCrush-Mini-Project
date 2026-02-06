@@ -1,3 +1,29 @@
-{
-  "tasks": []
-}
+[
+  {
+    "id": "1a2b3c",
+    "title": "Buy groceries",
+    "description": "Milk, bread, eggs, and fruits",
+    "status": "pending",
+    "priority": "medium",
+    "createdAt": "2026-02-06T09:00:00Z",
+    "updatedAt": "2026-02-06T09:00:00Z"
+  },
+  {
+    "id": "4d5e6f",
+    "title": "Finish Python assignment",
+    "description": "Complete file handling exercise",
+    "status": "completed",
+    "priority": "high",
+    "createdAt": "2026-02-05T14:30:00Z",
+    "updatedAt": "2026-02-05T18:10:00Z"
+  },
+  {
+    "id": "7g8h9i",
+    "title": "Workout",
+    "description": "30 minutes cardio",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2026-02-06T06:45:00Z",
+    "updatedAt": "2026-02-06T06:45:00Z"
+  }
+]
