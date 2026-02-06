@@ -1,0 +1,74 @@
+<%# views/index.ejs %> <%# Created by: Member 5 %> <%# Description: Main page -
+displays all tasks %> <%- include('partials/header') %>
+
+<h2 class="page-title"><%= title %></h2>
+
+<!-- TODO: Member 5 - Complete this template -->
+
+<!-- 
+INSTRUCTIONS:
+1. Include the header partial (already done above)
+2. Display the page title (already done above)
+3. Add a filter section with buttons:
+   - All Tasks
+   - Pending
+   - Completed
+4. Loop through the tasks array and display each task
+5. For each task, show:
+   - Title
+   - Description
+   - Status badge (pending/completed)
+   - Priority badge (low/medium/high)
+   - Created date
+   - Edit button (link to /edit/:id)
+   - Delete button (link to /delete/:id)
+   - Toggle status button (link to /toggle/:id)
+6. If no tasks, display "No tasks found" message
+7. Include the footer partial (already done below)
+
+EJS SYNTAX REMINDERS:
+- <%= variable %> - Output and escape HTML
+- <%- variable %> - Output without escaping (for HTML)
+- <% code %> - Execute JavaScript code
+- <% if (condition) { %> ... <% } %> - Conditionals
+- <% tasks.forEach(task => { %> ... <% }) %> - Loops
+
+EXAMPLE STRUCTURE:
+
+<div class="filter-section">
+    <a href="/" class="filter-btn">All</a>
+    <a href="/?status=pending" class="filter-btn">Pending</a>
+    <a href="/?status=completed" class="filter-btn">Completed</a>
+</div>
+
+<div class="tasks-container">
+    <% if (tasks.length === 0) { %>
+        <p class="no-tasks">No tasks found. <a href="/add">Add your first task!</a></p>
+    <% } else { %>
+        <% tasks.forEach(task => { %>
+            <div class="task-card <%= task.status %> <%= task.priority %>">
+                <div class="task-header">
+                    <h3><%= task.title %></h3>
+                    <span class="priority-badge <%= task.priority %>"><%= task.priority %></span>
+                </div>
+                <p class="task-description"><%= task.description %></p>
+                <div class="task-meta">
+                    <span class="status-badge <%= task.status %>"><%= task.status %></span>
+                    <span class="date">Created: <%= new Date(task.createdAt).toLocaleDateString() %></span>
+                </div>
+                <div class="task-actions">
+                    <a href="/edit/<%= task.id %>" class="btn btn-edit">Edit</a>
+                    <a href="/toggle/<%= task.id %>" class="btn btn-toggle">
+                        <%= task.status === 'pending' ? 'Mark Complete' : 'Mark Pending' %>
+                    </a>
+                    <a href="/delete/<%= task.id %>" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this task?')">Delete</a>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+</div>
+-->
+
+<!-- Your implementation here -->
+
+<%- include('partials/footer') %>
