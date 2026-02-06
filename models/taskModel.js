@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 // models/taskModel.js
 // Created by: Member 2
 // Description: Task data model - handles all file operations
@@ -31,7 +30,6 @@ export async function writeTasks(tasks) {
     throw error;
   }
 }
-=======
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -61,4 +59,3 @@ export default readTasks;
 
 
 
->>>>>>> Stashed changes
