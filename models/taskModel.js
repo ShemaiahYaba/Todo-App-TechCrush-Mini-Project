@@ -30,32 +30,19 @@ export async function writeTasks(tasks) {
     throw error;
   }
 }
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename);
-const tasksFilePath = path.join(__dirname, "../data/tasks.json");
 
 // Get tasks from data/tasks.json
 
-function readTasks(){
-   try{
-      const tasksJSON = fs.readFileSync(tasksFilePath, 'utf-8');
-      const tasksData = JSON.parse(tasksJSON);
+function readTasks() {
+  try {
+    const tasksJSON = fs.readFileSync(tasksFilePath, "utf-8");
+    const tasksData = JSON.parse(tasksJSON);
 
-      // Return an Object of tasks
-      return tasksData;
-
-   } catch (error) {
-      return "File doesn't exist";
-   }
-
+    // Return an Object of tasks
+    return tasksData;
+  } catch (error) {
+    return "File doesn't exist";
+  }
 }
 
-export default readTasks;
-
-
-
-
+export default { readTasks, writeTasks };
