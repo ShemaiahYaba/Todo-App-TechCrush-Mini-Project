@@ -121,3 +121,37 @@ OPTIONAL ADDITIONAL HELPERS:
 - isValidPriority(priority)
 - isValidStatus(status)
 */
+
+export function formatDate(dateString) {
+
+
+    const date = new Date(dateString);
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+}
+console.log(formatDate ("2026-02-01") )
+
+
+
+export function capitalizeFirst(str) {
+
+
+    if (!str) return '';
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+console.log(capitalizeFirst("hello world"))
+
+
+export function getPriorityClass(priority) {
+    switch(priority) {
+        case 'low':
+            return 'priority-low';
+        case 'medium':
+            return 'priority-medium';
+        case 'high':
+            return 'priority-high';
+        default:
+            return 'priority-medium';
+    }
+}
+console.log(getPriorityClass(`low`))
