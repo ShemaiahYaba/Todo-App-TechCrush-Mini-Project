@@ -29,6 +29,8 @@ async function readTasks() {
  * @param {Array<Object>} tasks - Array of task objects to persist.
  * @returns {Promise<void|string>} Resolves when written, or error string on failure.
  */
+
+
 async function writeTasks(tasks) {
   try {
     const data = { tasks };
@@ -39,15 +41,17 @@ async function writeTasks(tasks) {
   }
 }
 
-<<<<<<< Updated upstream
 /**
  * Generate a unique ID for new tasks.
  * @returns {string} Unique ID string.
  */
+
+// Generate task id
+
 function generateId() {
   return `${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
 }
-=======
+
 // Find tasks by id
 
 async function findTasksById(id) {
@@ -62,8 +66,4 @@ async function findTasksById(id) {
 }
 
 
-
-export default { readTasks, writeTasks };
->>>>>>> Stashed changes
-
-export { readTasks, writeTasks, generateId };
+export { readTasks, writeTasks, generateId, findTasksById};
