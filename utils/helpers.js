@@ -129,7 +129,7 @@ export function formatDate(dateString) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
 }
-console.log(formatDate ("2026-02-01") )
+
 
 
 
@@ -139,7 +139,7 @@ export function capitalizeFirst(str) {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
-console.log(capitalizeFirst("hello world"))
+
 
 
 export function getPriorityClass(priority) {
@@ -154,4 +154,3 @@ export function getPriorityClass(priority) {
             return 'priority-medium';
     }
 }
-console.log(getPriorityClass(`low`))
