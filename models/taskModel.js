@@ -39,6 +39,7 @@ async function writeTasks(tasks) {
   }
 }
 
+<<<<<<< Updated upstream
 /**
  * Generate a unique ID for new tasks.
  * @returns {string} Unique ID string.
@@ -46,5 +47,23 @@ async function writeTasks(tasks) {
 function generateId() {
   return `${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
 }
+=======
+// Find tasks by id
+
+async function findTasksById(id) {
+  try {
+    const taskData = await readTasks();
+    const searchedTask = taskData.find(task => task.id === id);
+    return searchedTask  ||  "Task Id not found" ;
+
+  } catch (error) {
+    return "Error finding task";
+  }
+}
+
+
+
+export default { readTasks, writeTasks };
+>>>>>>> Stashed changes
 
 export { readTasks, writeTasks, generateId };
