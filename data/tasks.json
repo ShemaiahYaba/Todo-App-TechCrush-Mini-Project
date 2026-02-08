@@ -1,3 +1,227 @@
-{
-  "tasks": []
-}
+[
+  {
+    "id": "l3p2x7kq_8f3k2p1a",
+    "title": "Buy groceries",
+    "description": "Milk, bread, eggs, and fruits",
+    "status": "pending",
+    "priority": "medium",
+    "createdAt": "2026-02-06T09:00:00Z",
+    "updatedAt": "2026-02-06T09:00:00Z"
+  },
+  {
+    "id": "l3p2x7kr_2m8c9v0b",
+    "title": "Finish Python assignment",
+    "description": "Complete file handling exercise",
+    "status": "completed",
+    "priority": "high",
+    "createdAt": "2026-02-05T14:30:00Z",
+    "updatedAt": "2026-02-05T18:10:00Z"
+  },
+  {
+    "id": "l3p2x7ks_6q1r4t7c",
+    "title": "Workout",
+    "description": "30 minutes cardio",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2026-02-06T06:45:00Z",
+    "updatedAt": "2026-02-06T06:45:00Z"
+  },
+  {
+    "id": "l3p2x7kt_9w5e2y8d",
+    "title": "Review EJS templating",
+    "description": "Go through partials and layout flow",
+    "status": "pending",
+    "priority": "medium",
+    "createdAt": "2026-02-04T10:00:00Z",
+    "updatedAt": "2026-02-04T10:00:00Z"
+  },
+  {
+    "id": "l3p2x7ku_3u7i1o4e",
+    "title": "Fix route bugs",
+    "description": "Check task edit and delete routes",
+    "status": "completed",
+    "priority": "high",
+    "createdAt": "2026-02-02T09:20:00Z",
+    "updatedAt": "2026-02-02T12:45:00Z"
+  },
+  {
+    "id": "l3p2x7kv_7p2a5s9f",
+    "title": "Write project documentation",
+    "description": "Update README with setup steps",
+    "status": "pending",
+    "priority": "medium",
+    "createdAt": "2026-02-03T16:10:00Z",
+    "updatedAt": "2026-02-03T16:10:00Z"
+  },
+  {
+    "id": "l3p2x7kw_1d6f3g8h",
+    "title": "Practice Git commands",
+    "description": "Review branch, merge, and rebase",
+    "status": "completed",
+    "priority": "low",
+    "createdAt": "2026-02-01T08:30:00Z",
+    "updatedAt": "2026-02-01T09:05:00Z"
+  },
+  {
+    "id": "l3p2x7kx_5h9j2k4i",
+    "title": "Study for backend exam",
+    "description": "Focus on Express routing and middleware",
+    "status": "pending",
+    "priority": "high",
+    "createdAt": "2026-02-05T11:00:00Z",
+    "updatedAt": "2026-02-05T11:00:00Z"
+  },
+  {
+    "id": "l3p2x7ky_8l3z6x1j",
+    "title": "Complete Node.js assignment",
+    "description": "Implement task model functions",
+    "status": "completed",
+    "priority": "high",
+    "createdAt": "2026-02-01T13:15:00Z",
+    "updatedAt": "2026-02-01T15:40:00Z"
+  },
+  {
+    "id": "l3p2x7kz_2c7v4b9k",
+    "title": "Add CSS styling",
+    "description": "Improve spacing and button styles",
+    "status": "pending",
+    "priority": "medium",
+    "createdAt": "2026-02-06T12:30:00Z",
+    "updatedAt": "2026-02-06T12:30:00Z"
+  },
+  {
+    "id": "l3p2x7l0_6n1m8q3l",
+    "title": "Test all routes",
+    "description": "Manually test add, edit, delete, list",
+    "status": "pending",
+    "priority": "high",
+    "createdAt": "2026-02-06T15:00:00Z",
+    "updatedAt": "2026-02-06T15:00:00Z"
+  },
+  {
+    "id": "l3p2x7l1_9r5t2y7m",
+    "title": "Refactor controllers",
+    "description": "Reduce duplication in task handlers",
+    "status": "pending",
+    "priority": "medium",
+    "createdAt": "2026-02-03T09:45:00Z",
+    "updatedAt": "2026-02-03T09:45:00Z"
+  },
+  {
+    "id": "l3p2x7l2_3u8i1o4n",
+    "title": "Clean up utils helpers",
+    "description": "Remove unused functions",
+    "status": "completed",
+    "priority": "low",
+    "createdAt": "2026-02-02T17:30:00Z",
+    "updatedAt": "2026-02-02T18:00:00Z"
+  },
+  {
+    "id": "l3p2x7l3_7p2a5s9o",
+    "title": "Add input validation",
+    "description": "Ensure title and status are valid",
+    "status": "pending",
+    "priority": "high",
+    "createdAt": "2026-02-04T14:00:00Z",
+    "updatedAt": "2026-02-04T14:00:00Z"
+  },
+  {
+    "id": "l3p2x7l4_1d6f3g8p",
+    "title": "Optimize file IO",
+    "description": "Switch to async read/write everywhere",
+    "status": "pending",
+    "priority": "medium",
+    "createdAt": "2026-02-05T09:10:00Z",
+    "updatedAt": "2026-02-05T09:10:00Z"
+  },
+  {
+    "id": "l3p2x7l5_5h9j2k4q",
+    "title": "Prepare demo",
+    "description": "Create sample tasks for presentation",
+    "status": "completed",
+    "priority": "medium",
+    "createdAt": "2026-02-01T18:20:00Z",
+    "updatedAt": "2026-02-01T19:00:00Z"
+  },
+  {
+    "id": "l3p2x7l6_8l3z6x1r",
+    "title": "Update PRD",
+    "description": "Align requirements with current scope",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2026-02-02T08:10:00Z",
+    "updatedAt": "2026-02-02T08:10:00Z"
+  },
+  {
+    "id": "l3p2x7l7_2c7v4b9s",
+    "title": "Review error handling",
+    "description": "Ensure ENOENT handled in model",
+    "status": "completed",
+    "priority": "medium",
+    "createdAt": "2026-02-03T12:00:00Z",
+    "updatedAt": "2026-02-03T12:30:00Z"
+  },
+  {
+    "id": "l3p2x7l8_6n1m8q3t",
+    "title": "Build to-do list app",
+    "description": "Finish MVP features",
+    "status": "pending",
+    "priority": "high",
+    "createdAt": "2026-02-06T08:15:00Z",
+    "updatedAt": "2026-02-06T08:15:00Z"
+  },
+  {
+    "id": "l3p2x7l9_9r5t2y7u",
+    "title": "Learn Express.js",
+    "description": "Read docs on routers and middleware",
+    "status": "completed",
+    "priority": "medium",
+    "createdAt": "2026-02-01T10:45:00Z",
+    "updatedAt": "2026-02-01T11:30:00Z"
+  },
+  {
+    "id": "l3p2x7la_3u8i1o4v",
+    "title": "Review MVC structure",
+    "description": "Check separation of concerns",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2026-02-04T18:00:00Z",
+    "updatedAt": "2026-02-04T18:00:00Z"
+  },
+  {
+    "id": "l3p2x7lb_7p2a5s9w",
+    "title": "Add task search",
+    "description": "Implement search by title keyword",
+    "status": "pending",
+    "priority": "medium",
+    "createdAt": "2026-02-05T13:25:00Z",
+    "updatedAt": "2026-02-05T13:25:00Z"
+  },
+  {
+    "id": "l3p2x7lc_1d6f3g8x",
+    "title": "Run regression test",
+    "description": "Verify no crashes on startup",
+    "status": "completed",
+    "priority": "high",
+    "createdAt": "2026-02-06T07:30:00Z",
+    "updatedAt": "2026-02-06T07:50:00Z"
+  },
+  {
+    "id": "l3p2x7ld_5h9j2k4y",
+    "title": "Polish UI",
+    "description": "Adjust typography and spacing",
+    "status": "pending",
+    "priority": "medium",
+    "createdAt": "2026-02-06T16:40:00Z",
+    "updatedAt": "2026-02-06T16:40:00Z"
+  },
+  {
+    "id": "l3p2x7le_8l3z6x1z",
+    "title": "Set up linting",
+    "description": "Add eslint config for project",
+    "status": "pending",
+    "priority": "low",
+    "createdAt": "2026-02-05T19:05:00Z",
+    "updatedAt": "2026-02-05T19:05:00Z"
+  }
+]
