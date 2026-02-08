@@ -14,7 +14,6 @@ const tasksFilePath = path.join(__dirname, "../data/tasks.json");
 
 // Get tasks from data/tasks.json
 
-
 async function readTasks() {
   try {
     const tasks = await fs.readFile(tasksFilePath, "utf-8");
@@ -25,19 +24,17 @@ async function readTasks() {
   }
 }
 
-
 /**
  * Write tasks to data/tasks.json.
  * @param {Array<Object>} tasks - Array of task objects to persist.
  * @returns {Promise<void|string>} Resolves when written, or error string on failure.
-*/
-
+ */
 
 async function writeTasks(tasks) {
   try {
     const jsonString = JSON.stringify(tasks, null, 2);
     await fs.writeFile(tasksFilePath, jsonString, "utf-8");
-    return "Task has been written to task.json"
+    return "Task has been written to task.json";
   } catch (error) {
     return "Error writing tasks:" + error;
   }
@@ -46,7 +43,7 @@ async function writeTasks(tasks) {
 /**
  * Generate a unique ID for new tasks.
  * @returns {string} Unique ID string.
-*/
+ */
 
 // Generate task id
 
@@ -59,30 +56,28 @@ function generateId() {
 async function findTasksById(id) {
   try {
     const taskData = await readTasks();
-    const searchedTask = taskData.find(task => task.id === id);
-    return searchedTask  ||  "Task Id not found" ;
-    
+    const searchedTask = taskData.find((task) => task.id === id);
+    return searchedTask || "Task Id not found";
   } catch (error) {
     return "Error finding task";
-  }           
+  }
 }
 
 // Write tasks test
 // console.log(await writeTasks({id: "71728781", title: "Todo", description: "Fetch Garri", status: "pending", priority: "low"}))
 
-
 // Update tasks by id
 
-async function updateTask(id, updateToApply){
+async function updateTask(id, updateToApply) {
   try {
-    const tasks = await readTasks()
+    const tasks = await readTasks();
     // const taskToUpdate = await findTasksById(id);
-    const taskToUpdateIndex = tasks.findIndex(task => task.id === id)  
+    const taskToUpdateIndex = tasks.findIndex((task) => task.id === id);
 
     // Updates: most be an object so that we can destructure it
 
-    // reminder for laters:  make a class Update to handle update instances  
-    const {title, description, status, priority} = updateToApply;
+    // reminder for laters:  make a class Update to handle update instances
+    const { title, description, status, priority } = updateToApply;
 
     // Apply updates
     tasks[taskToUpdateIndex].title = title;
@@ -90,19 +85,17 @@ async function updateTask(id, updateToApply){
     tasks[taskToUpdateIndex].status = status;
     tasks[taskToUpdateIndex].priority = priority;
     tasks[taskToUpdateIndex].updatedAt = new Date().toISOString();
-    
+
     console.log(tasks[taskToUpdateIndex]);
 
     // Save back into data/task.json
     await writeTasks(tasks);
 
     return `Task of id ${id} has been updated`;
-
   } catch (error) {
     return `Could not update task of id ${id}`;
   }
-
-} 
+}
 
 // Sample test
 // let newUpdate = {title: "Food", description: "Drink garri", status: "pending", priority: "high"}
@@ -110,5 +103,36 @@ async function updateTask(id, updateToApply){
 
 // note: this test updates the first task in tasks.json to drink garri
 
-export { readTasks, writeTasks, generateId, findTasksById, updateTask};
+// Delete task by id
 
+async function deleteTask(id) {
+  try {
+    const tasks = await readTasks();
+    const taskIndex = tasks.findIndex((task) => task.id === id);
+
+    if (taskIndex === -1) {
+      return `Task of id ${id} not found`;
+    }
+
+    tasks.splice(taskIndex, 1);
+
+    // Save back into data/task.json
+    await writeTasks(tasks);
+
+    return `Task of id ${id} has been deleted`;
+  } catch (error) {
+    return `Could not delete task of id ${id}`;
+  }
+}
+
+// Sample test
+// console.log(await deleteTask("l3p2x7kr_2m8c9v0b"));
+
+export {
+  readTasks,
+  writeTasks,
+  generateId,
+  findTasksById,
+  updateTask,
+  deleteTask,
+};
