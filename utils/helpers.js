@@ -4,56 +4,29 @@
 
 // TODO: Member 6 - Implement these utility functions
 
-/**
- * Format a date string to a readable format
- * @param {string} dateString - ISO date string
- * @returns {string} Formatted date
- */
-// export function formatDate(dateString) {
-//     // Convert ISO date string to readable format
-//     // Example: "2026-02-01T10:00:00.000Z" -> "Feb 1, 2026"
-//
-//     const date = new Date(dateString);
-//     const options = { year: 'numeric', month: 'short', day: 'numeric' };
-//     return date.toLocaleDateString('en-US', options);
-// }
+export function formatDate(dateString) {
+  const date = new Date(dateString);
+  const options = { year: "numeric", month: "short", day: "numeric" };
+  return date.toLocaleDateString("en-US", options);
+}
 
-/**
- * Capitalize the first letter of a string
- * @param {string} str - String to capitalize
- * @returns {string} Capitalized string
- */
-// export function capitalizeFirst(str) {
-//     // Capitalize the first letter of a string
-//     // Example: "hello" -> "Hello"
-//
-//     if (!str) return '';
-//     return str.charAt(0).toUpperCase() + str.slice(1);
-// }
+export function capitalizeFirst(str) {
+  if (!str) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
-/**
- * Get a color class based on priority
- * @param {string} priority - Priority level (low, medium, high)
- * @returns {string} CSS class name
- */
-// export function getPriorityClass(priority) {
-//     // Return a CSS class name based on priority
-//     // Example:
-//     // - 'low' -> 'priority-low'
-//     // - 'medium' -> 'priority-medium'
-//     // - 'high' -> 'priority-high'
-//
-//     switch(priority) {
-//         case 'low':
-//             return 'priority-low';
-//         case 'medium':
-//             return 'priority-medium';
-//         case 'high':
-//             return 'priority-high';
-//         default:
-//             return 'priority-medium';
-//     }
-// }
+export function getPriorityClass(priority) {
+  switch (priority) {
+    case "low":
+      return "priority-low";
+    case "medium":
+      return "priority-medium";
+    case "high":
+      return "priority-high";
+    default:
+      return "priority-medium";
+  }
+}
 
 /**
  * Get a color class based on status

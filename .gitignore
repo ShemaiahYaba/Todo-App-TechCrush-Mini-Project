@@ -35,6 +35,4 @@ pids
 *.pid
 *.seed
 *.pid.lock
-
-# Dev guides
 guide_task_model.js
