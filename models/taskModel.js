@@ -14,6 +14,7 @@ const tasksFilePath = path.join(__dirname, "../data/tasks.json");
 
 // Get tasks from data/tasks.json
 
+
 async function readTasks() {
   try {
     const tasks = await fs.readFile(tasksFilePath, "utf-8");
@@ -24,18 +25,19 @@ async function readTasks() {
   }
 }
 
+
 /**
  * Write tasks to data/tasks.json.
  * @param {Array<Object>} tasks - Array of task objects to persist.
  * @returns {Promise<void|string>} Resolves when written, or error string on failure.
- */
+*/
 
 
 async function writeTasks(tasks) {
   try {
-    const data = { tasks };
-    const jsonString = JSON.stringify(data, null, 2);
-    await fs.writeFile(tasksFilePath, jsonString, "utf8");
+    const jsonString = JSON.stringify(tasks, null, 2);
+    await fs.writeFile(tasksFilePath, jsonString, "utf-8");
+    return "Task has been written to task.json"
   } catch (error) {
     return "Error writing tasks:" + error;
   }
@@ -44,7 +46,7 @@ async function writeTasks(tasks) {
 /**
  * Generate a unique ID for new tasks.
  * @returns {string} Unique ID string.
- */
+*/
 
 // Generate task id
 
@@ -59,11 +61,15 @@ async function findTasksById(id) {
     const taskData = await readTasks();
     const searchedTask = taskData.find(task => task.id === id);
     return searchedTask  ||  "Task Id not found" ;
-
+    
   } catch (error) {
     return "Error finding task";
-  }
+  }           
 }
+
+// Write tasks test
+// console.log(await writeTasks({id: "71728781", title: "Todo", description: "Fetch Garri", status: "pending", priority: "low"}))
 
 
 export { readTasks, writeTasks, generateId, findTasksById};
+
