@@ -71,5 +71,44 @@ async function findTasksById(id) {
 // console.log(await writeTasks({id: "71728781", title: "Todo", description: "Fetch Garri", status: "pending", priority: "low"}))
 
 
-export { readTasks, writeTasks, generateId, findTasksById};
+// Update tasks by id
+
+async function updateTask(id, updateToApply){
+  try {
+    const tasks = await readTasks()
+    // const taskToUpdate = await findTasksById(id);
+    const taskToUpdateIndex = tasks.findIndex(task => task.id === id)  
+
+    // Updates: most be an object so that we can destructure it
+
+    // reminder for laters:  make a class Update to handle update instances  
+    const {title, description, status, priority} = updateToApply;
+
+    // Apply updates
+    tasks[taskToUpdateIndex].title = title;
+    tasks[taskToUpdateIndex].description = description;
+    tasks[taskToUpdateIndex].status = status;
+    tasks[taskToUpdateIndex].priority = priority;
+    tasks[taskToUpdateIndex].updatedAt = new Date().toISOString();
+    
+    console.log(tasks[taskToUpdateIndex]);
+
+    // Save back into data/task.json
+    await writeTasks(tasks);
+
+    return `Task of id ${id} has been updated`;
+
+  } catch (error) {
+    return `Could not update task of id ${id}`;
+  }
+
+} 
+
+// Sample test
+// let newUpdate = {title: "Food", description: "Drink garri", status: "pending", priority: "high"}
+// console.log(await updateTask("l3p2x7kr_2m8c9v0b", newUpdate));
+
+// note: this test updates the first task in tasks.json to drink garri
+
+export { readTasks, writeTasks, generateId, findTasksById, updateTask};
 
