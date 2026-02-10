@@ -3,9 +3,6 @@
 	Description: Task controller - JSON API responses only
 	Task done by Member 3 - Temitope Mercy
 */
-// controllers/taskController.js
-// Task Controller
-// Uses EJS rendering as required by PRD
 
 import {
 	readTasks,
