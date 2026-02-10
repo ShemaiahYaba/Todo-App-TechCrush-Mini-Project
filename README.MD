@@ -6,7 +6,7 @@ A simple file-based to-do list application built with Node.js, Express, and EJS.
 
 1. **Shemaiah Yaba-Shiaka** - Project Setup & Core Infrastructure (Team Lead)
 2. **Samuel Ola** - Data Model & File Operations
-3. **[Member 3 Name]** - Task Controller (Business Logic)
+3. **Temitope Mercy** - Task Controller (Business Logic)
 4. **Iyanuoluwa Samuel James** - Routes Module
 5. **[Member 5 Name]** - EJS Views & Templates
 6. **[Member 6 Name]** - Styling, Utilities & Documentation
