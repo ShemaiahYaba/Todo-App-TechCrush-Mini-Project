@@ -3,6 +3,9 @@
 	Description: Task controller - JSON API responses only
 	Task done by Member 3 - Temitope Mercy
 */
+// controllers/taskController.js
+// Task Controller
+// Uses EJS rendering as required by PRD
 
 import {
 	readTasks,
@@ -14,65 +17,54 @@ import {
 } from "../models/taskModel.js";
 
 /*
-  GET /tasks
-  Get all tasks
+  Helper function to normalize tasks data
+  Handles both:
+  []  OR  { tasks: [] }
+*/
+function getTaskArray(data) {
+	if (Array.isArray(data)) {
+		return data;
+	}
+
+	if (data && Array.isArray(data.tasks)) {
+		return data.tasks;
+	}
+
+	return [];
+}
+
+/*
+  GET /
+  Display all tasks
 */
 export async function getAllTasks(req, res) {
 	try {
-		const tasks = await readTasks();
+		const data = await readTasks();
+		const tasks = getTaskArray(data);
 
-		if (!Array.isArray(tasks)) {
-			return res.status(200).json({
-				success: true,
-				data: [],
-			});
-		}
-
-		res.status(200).json({
-			success: true,
-			data: tasks,
+		res.render("index", {
+			title: "All Tasks",
+			tasks: tasks,
 		});
 	} catch (error) {
-		console.log(error);
-		res.status(500).json({
-			success: false,
-			message: "Something went wrong",
-		});
+		console.log("Error loading tasks:", error);
+		res.status(500).send("Error loading tasks");
 	}
 }
 
 /*
-  GET /tasks/:id
-  Get one task
+  GET /add
+  Display add task form
 */
-export async function getTaskById(req, res) {
-	try {
-		const taskId = req.params.id;
-		const task = await findTasksById(taskId);
-
-		if (!task || typeof task === "string") {
-			return res.status(404).json({
-				success: false,
-				message: "Task not found",
-			});
-		}
-
-		res.status(200).json({
-			success: true,
-			data: task,
-		});
-	} catch (error) {
-		console.log(error);
-		res.status(500).json({
-			success: false,
-			message: "Error getting task",
-		});
-	}
+export function getAddTaskForm(req, res) {
+	res.render("add", {
+		title: "Add New Task",
+	});
 }
 
 /*
-  POST /tasks
-  Create a new task
+  POST /add
+  Create new task
 */
 export async function createTask(req, res) {
 	try {
@@ -81,10 +73,7 @@ export async function createTask(req, res) {
 		const priority = req.body.priority;
 
 		if (!title || !description) {
-			return res.status(400).json({
-				success: false,
-				message: "Title and description are required",
-			});
+			return res.status(400).send("Title and description are required");
 		}
 
 		if (
@@ -92,10 +81,7 @@ export async function createTask(req, res) {
 			priority !== "medium" &&
 			priority !== "high"
 		) {
-			return res.status(400).json({
-				success: false,
-				message: "Priority must be low, medium or high",
-			});
+			return res.status(400).send("Invalid priority");
 		}
 
 		const newTask = {
@@ -108,32 +94,52 @@ export async function createTask(req, res) {
 			updatedAt: new Date().toISOString(),
 		};
 
-		let tasks = await readTasks();
-
-		if (!Array.isArray(tasks)) {
-			tasks = [];
-		}
+		const data = await readTasks();
+		const tasks = getTaskArray(data);
 
 		tasks.push(newTask);
-		await writeTasks(tasks);
 
-		res.status(201).json({
-			success: true,
-			message: "Task created",
-			data: newTask,
-		});
+		// Save back in correct format
+		if (data && data.tasks) {
+			await writeTasks({ tasks: tasks });
+		} else {
+			await writeTasks(tasks);
+		}
+
+		// PRD requires redirect after action
+		res.redirect("/");
 	} catch (error) {
-		console.log(error);
-		res.status(500).json({
-			success: false,
-			message: "Could not create task",
-		});
+		console.log("Error creating task:", error);
+		res.status(500).send("Error creating task");
 	}
 }
 
 /*
-  PUT /tasks/:id
-  Update a task
+  GET /edit/:id
+  Display edit task form
+*/
+export async function getEditTaskForm(req, res) {
+	try {
+		const taskId = req.params.id;
+		const task = await findTasksById(taskId);
+
+		if (!task || typeof task === "string") {
+			return res.status(404).send("Task not found");
+		}
+
+		res.render("edit", {
+			title: "Edit Task",
+			task: task,
+		});
+	} catch (error) {
+		console.log("Error loading task:", error);
+		res.status(500).send("Error loading task");
+	}
+}
+
+/*
+  POST /edit/:id
+  Update task
 */
 export async function updateTaskByController(req, res) {
 	try {
@@ -144,10 +150,7 @@ export async function updateTaskByController(req, res) {
 		const status = req.body.status;
 
 		if (!title || !description) {
-			return res.status(400).json({
-				success: false,
-				message: "Title and description are required",
-			});
+			return res.status(400).send("Title and description are required");
 		}
 
 		if (
@@ -155,26 +158,17 @@ export async function updateTaskByController(req, res) {
 			priority !== "medium" &&
 			priority !== "high"
 		) {
-			return res.status(400).json({
-				success: false,
-				message: "Invalid priority",
-			});
+			return res.status(400).send("Invalid priority");
 		}
 
 		if (status !== "pending" && status !== "completed") {
-			return res.status(400).json({
-				success: false,
-				message: "Invalid status",
-			});
+			return res.status(400).send("Invalid status");
 		}
 
 		const task = await findTasksById(taskId);
 
 		if (!task || typeof task === "string") {
-			return res.status(404).json({
-				success: false,
-				message: "Task not found",
-			});
+			return res.status(404).send("Task not found");
 		}
 
 		await updateTask(taskId, {
@@ -184,22 +178,17 @@ export async function updateTaskByController(req, res) {
 			status: status,
 		});
 
-		res.status(200).json({
-			success: true,
-			message: "Task updated",
-		});
+		// Redirect as required by PRD
+		res.redirect("/");
 	} catch (error) {
-		console.log(error);
-		res.status(500).json({
-			success: false,
-			message: "Could not update task",
-		});
+		console.log("Error updating task:", error);
+		res.status(500).send("Error updating task");
 	}
 }
 
 /*
-  DELETE /tasks/:id
-  Delete a task
+  GET /delete/:id
+  Delete task
 */
 export async function deleteTaskByController(req, res) {
 	try {
@@ -207,27 +196,19 @@ export async function deleteTaskByController(req, res) {
 		const result = await deleteTask(taskId);
 
 		if (typeof result === "string" && result.includes("not found")) {
-			return res.status(404).json({
-				success: false,
-				message: "Task not found",
-			});
+			return res.status(404).send("Task not found");
 		}
 
-		res.status(200).json({
-			success: true,
-			message: "Task deleted",
-		});
+		// Redirect after delete
+		res.redirect("/");
 	} catch (error) {
-		console.log(error);
-		res.status(500).json({
-			success: false,
-			message: "Could not delete task",
-		});
+		console.log("Error deleting task:", error);
+		res.status(500).send("Error deleting task");
 	}
 }
 
 /*
-  PATCH /tasks/:id/toggle
+  GET /toggle/:id
   Toggle task status
 */
 export async function toggleTaskStatus(req, res) {
@@ -236,14 +217,10 @@ export async function toggleTaskStatus(req, res) {
 		const task = await findTasksById(taskId);
 
 		if (!task || typeof task === "string") {
-			return res.status(404).json({
-				success: false,
-				message: "Task not found",
-			});
+			return res.status(404).send("Task not found");
 		}
 
 		let newStatus = "pending";
-
 		if (task.status === "pending") {
 			newStatus = "completed";
 		}
@@ -255,16 +232,9 @@ export async function toggleTaskStatus(req, res) {
 			status: newStatus,
 		});
 
-		res.status(200).json({
-			success: true,
-			message: "Task status changed",
-			status: newStatus,
-		});
+		res.redirect("/");
 	} catch (error) {
-		console.log(error);
-		res.status(500).json({
-			success: false,
-			message: "Could not change task status",
-		});
+		console.log("Error toggling task:", error);
+		res.status(500).send("Error toggling task");
 	}
 }
