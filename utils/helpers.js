@@ -55,5 +55,51 @@ export function truncateText(text, maxLength = 50) {
   return text.slice(0, maxLength) + "...";
 }
 
-// NOTE: See utils/STUDY.MD for detailed instructions on how to implement the functions above.
+// NOTE: See utils/STUDY.MD for detailed instructions on how to implement the core functions.
 // ADDITIONAL: See utils/TODO.MD for optional "Extra Credit" helper functions to implement.
+
+/* 
+  ==========================================================================
+  TEAM PARTICIPANT TASKS (Core requirements from the PRD)
+  ==========================================================================
+*/
+
+/**
+ * Check if the priority value is allowed
+ * TODO: Implement for Section 4.1.4 of PRD
+ */
+export function isValidPriority(priority) {
+  // Your code here
+}
+
+/**
+ * Check if the status value is allowed
+ * TODO: Implement for Section 4.1.4 of PRD
+ */
+export function isValidStatus(status) {
+  // Your code here
+}
+
+/**
+ * Filter tasks by status (all, pending, completed)
+ * TODO: Implement for Section 3.1.1 of PRD
+ */
+export function filterTasksByStatus(tasks, status) {
+  // Your code here
+}
+
+/**
+ * Sort tasks so newest ones are at the top
+ * TODO: Implement for Section 3.1.1 of PRD
+ */
+export function sortTasksByDate(tasks) {
+  // Your code here
+}
+
+/**
+ * Returns an object with counts of total, pending, and completed tasks
+ * TODO: Implement to help with EJS rendering (Grading Point #4)
+ */
+export function getTaskStats(tasks) {
+  // Your code here
+}
