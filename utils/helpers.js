@@ -35,7 +35,10 @@ export function getPriorityClass(priority) {
  * TODO: Implement this using the guide in utils/STUDY.MD
  */
 export function getStatusClass(status) {
-  // Your code here
+  if (status === "completed") {
+    return "status-completed";
+  }
+  return "status-pending";
 }
 
 /**
@@ -46,7 +49,10 @@ export function getStatusClass(status) {
  * TODO: Implement this using the guide in utils/STUDY.MD
  */
 export function truncateText(text, maxLength = 50) {
-  // Your code here
+  if (text.length <= maxLength) {
+    return text;
+  }
+  return text.slice(0, maxLength) + "...";
 }
 
 // NOTE: See utils/STUDY.MD for detailed instructions on how to implement the functions above.
