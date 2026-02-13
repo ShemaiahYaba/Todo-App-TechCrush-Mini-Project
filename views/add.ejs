@@ -1,66 +1,44 @@
-<%# views/add.ejs %> <%# Created by: Member 5 %> <%# Description: Add new task
-form %> <%- include('partials/header') %>
+<%- include('partials/header') %>
 
-<h2 class="page-title"><%= title %></h2>
+<section class="hero-container">
+  <div class="app-container form-page">
+    <div class="top-menu">
+      <div class="app-title">
+        <h2><%= title %></h2>
+      </div>
+      <div class="app-btns">
+        <a href="/" class="menu-btn">View Tasks</a>
+      </div>
+    </div>
 
-<!-- TODO: Member 5 - Complete this form -->
-
-<!--
-INSTRUCTIONS:
-1. Create a form that POSTs to /add
-2. Form fields:
-   - Title (text input, required)
-   - Description (textarea, required)
-   - Priority (dropdown: low, medium, high)
-3. Add labels for each field
-4. Add a submit button
-5. Add a cancel button (link back to /)
-6. Use proper HTML5 validation (required attributes)
-
-EXAMPLE STRUCTURE:
-
-<div class="form-container">
-    <form action="/add" method="POST" class="task-form">
-        <div class="form-group">
-            <label for="title">Task Title *</label>
-            <input 
-                type="text" 
-                id="title" 
-                name="title" 
-                required 
-                placeholder="Enter task title"
-                maxlength="100"
-            >
+    <div class="form-content show-form">
+      <form action="/add" method="POST" class="task-form">
+        <div class="form-row">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required maxlength="100" />
         </div>
 
-        <div class="form-group">
-            <label for="description">Description *</label>
-            <textarea 
-                id="description" 
-                name="description" 
-                required 
-                placeholder="Enter task description"
-                rows="5"
-            ></textarea>
+        <div class="form-row">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" required rows="4"></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="priority">Priority</label>
-            <select id="priority" name="priority">
-                <option value="low">Low</option>
-                <option value="medium" selected>Medium</option>
-                <option value="high">High</option>
-            </select>
+        <div class="form-row">
+          <label for="priority">Priority</label>
+          <select id="priority" name="priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
         </div>
 
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Add Task</button>
-            <a href="/" class="btn btn-secondary">Cancel</a>
+        <div class="fm-btn">
+          <button type="submit" class="submt">Add Task</button>
+          <a href="/" class="cancl">Cancel</a>
         </div>
-    </form>
-</div>
--->
-
-<!-- Your implementation here -->
+      </form>
+    </div>
+  </div>
+</section>
 
 <%- include('partials/footer') %>

@@ -75,30 +75,7 @@ app.get("/", (req, res) => {
 // ==================== 404 HANDLER ====================
 
 app.use((req, res) => {
-  // TODO: Uncomment this after Member 5 creates the 404.ejs view
-  // res.status(404).render('404', { title: 'Page Not Found' });
-
-  // Temporary 404 response
-  res.status(404).send(`
-        <html>
-            <head>
-                <title>404 - Page Not Found</title>
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        text-align: center;
-                        margin-top: 100px;
-                    }
-                    h1 { color: #e74c3c; }
-                </style>
-            </head>
-            <body>
-                <h1>404 - Page Not Found</h1>
-                <p>The page you're looking for doesn't exist.</p>
-                <a href="/">Go Home</a>
-            </body>
-        </html>
-    `);
+  res.status(404).render("404", { title: "Page Not Found" });
 });
 
 // ==================== START SERVER ====================
@@ -106,11 +83,11 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log("");
   console.log("============================================");
-  console.log("✅ TO-DO APP SERVER STARTED SUCCESSFULLY");
+  console.log("TO-DO APP SERVER STARTED SUCCESSFULLY");
   console.log("============================================");
-  console.log(`🌐 Server running at: http://localhost:${PORT}`);
-  console.log(`📁 Project directory: ${__dirname}`);
-  console.log(`⏰ Started at: ${new Date().toLocaleString()}`);
+  console.log(`Server running at: http://localhost:${PORT}`);
+  console.log(`Project directory: ${__dirname}`);
+  console.log(`Started at: ${new Date().toLocaleString()}`);
   console.log("");
   console.log("Press Ctrl+C to stop the server");
   console.log("============================================");

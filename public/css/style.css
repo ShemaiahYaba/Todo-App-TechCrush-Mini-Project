@@ -1,4 +1,3 @@
-/* TODO: Member 6 - Add CSS styling here */
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +6,280 @@
 
 body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
+  background: #f4f6f4;
+  color: #1f2f24;
 }
 
-/* Add more styles here */
+.site-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #253d2c;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #1a2c1f;
+}
+
+.nav-container {
+  font-size: 18px;
+  margin: 8px 16px;
+  border: 2px solid #fff;
+  padding: 3px 10px;
+}
+
+.nav-container h1 {
+  color: #fff;
+  font-size: 24px;
+}
+
+.page-main {
+  min-height: calc(100vh - 130px);
+}
+
+.hero-container {
+  width: 100%;
+  min-height: calc(100vh - 150px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px 12px;
+}
+
+.app-container {
+  width: min(1050px, 100%);
+  border: 2px solid #253d2c;
+  background: #fff;
+}
+
+.top-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid #253d2c;
+  padding: 14px;
+}
+
+.app-title h2 {
+  font-size: 24px;
+}
+
+.app-btns {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.menu-btn,
+.action-btn,
+.filter-btn,
+.fm-btn .submt,
+.fm-btn .cancl {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #253d2c;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  background-color: #253d2c;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-section {
+  display: flex;
+  gap: 0.7rem;
+  padding: 14px;
+  border-bottom: 1px solid #dce4dc;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #fff;
+  color: #253d2c;
+}
+
+.table-header,
+.task-row {
+  display: grid;
+  grid-template-columns: 2.3fr 1fr 1fr 1.6fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.table-header {
+  font-weight: 700;
+  color: #253d2c;
+  border-bottom: 1px solid #dce4dc;
+}
+
+.task-list .task-row {
+  border-bottom: 1px solid #eef2ee;
+}
+
+.task-main h3 {
+  margin-bottom: 4px;
+}
+
+.task-main p {
+  margin-bottom: 4px;
+  color: #33453a;
+}
+
+.task-main small {
+  color: #5f7066;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  border: 1px solid transparent;
+}
+
+.status-pending {
+  background: #fff7e8;
+  color: #8f5f00;
+  border-color: #e8cd8f;
+}
+
+.status-completed {
+  background: #ecf8ef;
+  color: #226636;
+  border-color: #9bc5a8;
+}
+
+.priority-low {
+  background: #eef5ff;
+  color: #164d9a;
+  border-color: #adc6e8;
+}
+
+.priority-medium {
+  background: #fff8e6;
+  color: #865a00;
+  border-color: #e6d29c;
+}
+
+.priority-high {
+  background: #fff0f0;
+  color: #911f1f;
+  border-color: #e6adad;
+}
+
+.task-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.action-btn {
+  padding: 6px 10px;
+  font-size: 0.82rem;
+}
+
+.action-delete {
+  background: #fff;
+  color: #a02222;
+  border-color: #c95555;
+}
+
+.no-tasks {
+  padding: 26px 14px;
+}
+
+.no-tasks a {
+  color: #253d2c;
+  font-weight: 600;
+}
+
+.form-page {
+  max-width: 760px;
+}
+
+.form-content {
+  width: 100%;
+  padding: 20px 16px;
+}
+
+.task-form {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 1rem;
+}
+
+.form-row label {
+  min-width: 110px;
+  font-weight: 600;
+}
+
+.form-row input,
+.form-row textarea,
+.form-row select {
+  width: 100%;
+  border: 1px solid #9db0a2;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.fm-btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.fm-btn .cancl {
+  background: #fff;
+  color: #253d2c;
+}
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+.error-code {
+  font-size: 72px;
+  line-height: 1;
+}
+
+.site-footer {
+  padding: 12px;
+  background: #253d2c;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .table-header {
+    display: none;
+  }
+
+  .task-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+  }
+
+  .form-row label {
+    min-width: 0;
+  }
+}
