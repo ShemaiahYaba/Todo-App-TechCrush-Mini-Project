@@ -13,9 +13,9 @@
     </div>
 
     <div class="filter-section">
-      <a href="/" class="filter-btn">All Tasks</a>
-      <a href="/?status=pending" class="filter-btn">Pending</a>
-      <a href="/?status=completed" class="filter-btn">Completed</a>
+      <a href="/" class="filter-btn <%= currentFilter === 'all' ? 'active' : '' %>">All Tasks</a>
+      <a href="/?status=pending" class="filter-btn <%= currentFilter === 'pending' ? 'active' : '' %>">Pending</a>
+      <a href="/?status=completed" class="filter-btn <%= currentFilter === 'completed' ? 'active' : '' %>">Completed</a>
     </div>
 
     <% if (!tasks || tasks.length === 0) { %>

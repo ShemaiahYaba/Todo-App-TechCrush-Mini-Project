@@ -99,6 +99,11 @@ body {
   color: #253d2c;
 }
 
+.filter-btn.active {
+  background: #253d2c;
+  color: #fff;
+}
+
 .table-header,
 .task-row {
   display: grid;
