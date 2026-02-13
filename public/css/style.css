@@ -123,6 +123,15 @@ body {
   border-bottom: 1px solid #eef2ee;
 }
 
+.date-separator {
+  padding: 10px 14px;
+  background: #f3f7f3;
+  border-top: 1px solid #dce4dc;
+  border-bottom: 1px solid #dce4dc;
+  font-weight: 700;
+  color: #2c4632;
+}
+
 .task-main h3 {
   margin-bottom: 4px;
 }

@@ -211,9 +211,9 @@
     "title": "Polish UI",
     "description": "Adjust typography and spacing",
     "status": "pending",
-    "priority": "medium",
+    "priority": "high",
     "createdAt": "2026-02-06T16:40:00Z",
-    "updatedAt": "2026-02-06T16:40:00Z"
+    "updatedAt": "2026-02-13T22:54:11.090Z"
   },
   {
     "id": "l3p2x7le_8l3z6x1z",
@@ -223,14 +223,5 @@
     "priority": "low",
     "createdAt": "2026-02-05T19:05:00Z",
     "updatedAt": "2026-02-05T19:05:00Z"
-  },
-  {
-    "id": "mllhee8q_gdaar3ub",
-    "title": "AHJSAKHD",
-    "description": "ASHDKJHAD",
-    "priority": "medium",
-    "status": "pending",
-    "createdAt": "2026-02-13T22:50:53.978Z",
-    "updatedAt": "2026-02-13T22:50:53.978Z"
   }
 ]

@@ -49,6 +49,13 @@ export async function getAllTasks(req, res) {
       filteredTasks = tasks.filter((task) => task.status === statusFilter);
     }
 
+    filteredTasks = filteredTasks.slice().sort((taskA, taskB) => {
+      const timeA = new Date(taskA.createdAt).getTime() || 0;
+      const timeB = new Date(taskB.createdAt).getTime() || 0;
+
+      return timeB - timeA;
+    });
+
     res.render("index", {
       title: "All Tasks",
       tasks: filteredTasks,

@@ -29,7 +29,13 @@
       </div>
 
       <div class="task-list">
+        <% let lastDate = ""; %>
         <% tasks.forEach(task => { %>
+          <% const taskDate = new Date(task.createdAt).toLocaleDateString(); %>
+          <% if (taskDate !== lastDate) { %>
+            <div class="date-separator">Date: <%= taskDate %></div>
+            <% lastDate = taskDate; %>
+          <% } %>
           <article class="task-row">
             <div class="task-main">
               <h3><%= task.title %></h3>
