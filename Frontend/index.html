@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 7 - To-Do List</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <main>
+        <!-- NAVIGATION BAR -->
+        <nav>
+            <div class="nav-container">
+                <h2>My ToDO</h2>
+            </div>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <section>
+            <div class="hero-container">
+                <!-- HERO APP CONTAINER -->
+                <div class="app-container">
+                    <!-- APP TOP MENU -->
+                    <div class="top-menu">
+                        <div class="app-title">
+                            <h2>My ToDO's</h2>
+                        </div>
+
+                        <div class="app-btns">
+                            <button type="submit" onclick="document.getElementById('add-task').classList.add('show-overlay')">Add Task</button>
+                            <button type="submit">View Tasks</button>
+                            <button type="submit">Edit Task</button>
+                        </div>
+                    </div>
+
+                    <!-- ADD TASK POP-UP MENU -->
+                        <div id="add-task" class="addtask-container">
+                            <div class="form-content">
+                                <form action="#" method="post">
+                                    <h2>Add New Task</h2>
+
+                                    <div>
+                                        <label for="name">Description</label>
+                                        <input type="text" id="name" name="name">
+                                    </div>
+
+                                    <div>
+                                        <label for="priority">Priority</label>
+                                        <select name="priority" id="priority">
+                                            <option value="high">High</option>
+                                            <option value="medium">Medium</option>
+                                            <option value="low">Low</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label for="status">Status</label>
+                                        <select name="status" id="status">
+                                            <option value="completed">Completed</option>
+                                            <option value="in_progress">In Progress</option>
+                                            <option value="not_started">Not Started</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="fm-btn">
+                                        <button type="submit" class="submt">Add Task</button>
+                                        <button type="submit" class="cancl" onclick="document.getElementById('add-task').classList.remove('show-overlay')">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    <!-- APP BODY -->
+                    <div class="app-body">
+                        <!-- TASKS COLUMN -->
+                        <div class="app-tasks legend">
+                            <h2 class="header"><hr>TASKS <hr></h2>
+                            <h4>Monthly Reports</h4>
+                            <h4>Daily Briefing</h4>
+                            <h4>Operations Team Request</h4>
+                            <h4>Store Procurements</h4>
+                        </div>
+                        <!-- STATUS COLUMN -->
+                        <div class="app-status legend">
+                            <h2 class="header"><hr>STATUS <hr></h2>
+                            <p>In progress</p>
+                            <p>Completed</p>
+                            <p>In progress</p>
+                            <p>Not Started</p>
+                        </div>
+                        <!-- PRIORITY COLUMN -->
+                        <div class="app-priority legend">
+                            <h2 class="header"><hr>PRIORITY <hr></h2>
+                            <p><span class="pr2">Medium</span></p>
+                            <p><span class="pr1">High</span></p>
+                            <p><span class="pr1">High</span></p>
+                            <p><span class="pr3">Low</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
