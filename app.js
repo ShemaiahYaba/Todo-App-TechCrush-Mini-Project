@@ -5,9 +5,8 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-
-// TODO: Uncomment this line after Member 4 creates the routes
-// import taskRoutes from './routes/tasks.js';
+import taskRoutes from "./routes/tasks.js";
+import * as helpers from "./utils/helpers.js";
 
 // Get __dirname equivalent in ES Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -30,6 +29,9 @@ app.use(express.json());
 
 // Serve static files from 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
+
+// Make helper functions available in all EJS templates
+app.locals.helpers = helpers;
 
 // ==================== ROUTES ====================
 

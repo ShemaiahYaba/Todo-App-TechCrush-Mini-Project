@@ -14,8 +14,8 @@
 
     <div class="filter-section">
       <a href="/" class="filter-btn <%= currentFilter === 'all' ? 'active' : '' %>">All Tasks</a>
-      <a href="/?status=pending" class="filter-btn <%= currentFilter === 'pending' ? 'active' : '' %>">Pending</a>
-      <a href="/?status=completed" class="filter-btn <%= currentFilter === 'completed' ? 'active' : '' %>">Completed</a>
+      <a href="/?status=pending" class="filter-btn <%= currentFilter === 'pending' ? 'active' : '' %>"><%= helpers.capitalizeFirst('pending') %></a>
+      <a href="/?status=completed" class="filter-btn <%= currentFilter === 'completed' ? 'active' : '' %>"><%= helpers.capitalizeFirst('completed') %></a>
     </div>
 
     <% if (!tasks || tasks.length === 0) { %>
@@ -31,24 +31,24 @@
       <div class="task-list">
         <% let lastDate = ""; %>
         <% tasks.forEach(task => { %>
-          <% const taskDate = new Date(task.createdAt).toLocaleDateString(); %>
+          <% const taskDate = helpers.formatDate(task.createdAt); %>
           <% if (taskDate !== lastDate) { %>
             <div class="date-separator">Date: <%= taskDate %></div>
             <% lastDate = taskDate; %>
           <% } %>
           <article class="task-row">
             <div class="task-main">
-              <h3><%= task.title %></h3>
-              <p><%= task.description %></p>
-              <small>Created: <%= new Date(task.createdAt).toLocaleDateString() %></small>
+              <h3><%= helpers.capitalizeFirst(task.title) %></h3>
+              <p><%= helpers.truncateText(task.description, 90) %></p>
+              <small>Created: <%= helpers.formatDate(task.createdAt) %></small>
             </div>
 
             <div>
-              <span class="badge status-<%= task.status %>"><%= task.status %></span>
+              <span class="badge <%= helpers.getStatusClass(task.status) %>"><%= helpers.capitalizeFirst(task.status) %></span>
             </div>
 
             <div>
-              <span class="badge priority-<%= task.priority %>"><%= task.priority %></span>
+              <span class="badge <%= helpers.getPriorityClass(task.priority) %>"><%= helpers.capitalizeFirst(task.priority) %></span>
             </div>
 
             <div class="task-actions">

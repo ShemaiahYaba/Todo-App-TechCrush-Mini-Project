@@ -8,8 +8,8 @@ A simple file-based to-do list application built with Node.js, Express, and EJS.
 2. **Samuel Ola** - Data Model & File Operations
 3. **Temitope Mercy** - Task Controller (Business Logic)
 4. **Iyanuoluwa Samuel James** - Routes Module
-5. **[Member 5 Name]** - EJS Views & Templates
-6. **[Member 6 Name]** - Styling, Utilities & Documentation
+5. **Damife** - EJS Views & Templates
+6. **Shittu Iqmat Titilope** - Styling, Utilities & Documentation
 
 ## Technologies Used
 
@@ -26,8 +26,8 @@ A simple file-based to-do list application built with Node.js, Express, and EJS.
 1. Clone the repository:
 
 ```bash
-   git clone https://github.com/YOUR-USERNAME/todo-app.git
-   cd todo-app
+git clone https://github.com/ShemaiahYaba/Todo-App-TechCrush-Mini-Project.git
+cd Todo-App-TechCrush-Mini-Project
 ```
 
 2. Install dependencies:
@@ -52,7 +52,7 @@ A simple file-based to-do list application built with Node.js, Express, and EJS.
 ⏳ Day 9-10: Views and styling  
 ⏳ Day 11-14: Integration, testing, and final documentation
 
-## API Routes (To Be Implemented)
+## API Routes
 
 - `GET /` - View all tasks
 - `GET /add` - Display add task form
@@ -62,7 +62,7 @@ A simple file-based to-do list application built with Node.js, Express, and EJS.
 - `GET /delete/:id` - Delete task
 - `GET /toggle/:id` - Toggle task status (pending/completed)
 
-## Features (To Be Implemented)
+## Features
 
 - ✅ Create tasks
 - ✅ View all tasks

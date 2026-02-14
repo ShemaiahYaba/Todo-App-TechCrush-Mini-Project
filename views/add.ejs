@@ -26,9 +26,9 @@
         <div class="form-row">
           <label for="priority">Priority</label>
           <select id="priority" name="priority">
-            <option value="low">Low</option>
-            <option value="medium" selected>Medium</option>
-            <option value="high">High</option>
+            <option value="low"><%= helpers.capitalizeFirst('low') %></option>
+            <option value="medium" selected><%= helpers.capitalizeFirst('medium') %></option>
+            <option value="high"><%= helpers.capitalizeFirst('high') %></option>
           </select>
         </div>
 

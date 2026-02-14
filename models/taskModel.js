@@ -86,8 +86,6 @@ async function updateTask(id, updateToApply) {
     tasks[taskToUpdateIndex].priority = priority;
     tasks[taskToUpdateIndex].updatedAt = new Date().toISOString();
 
-    console.log(tasks[taskToUpdateIndex]);
-
     // Save back into data/task.json
     await writeTasks(tasks);
 
