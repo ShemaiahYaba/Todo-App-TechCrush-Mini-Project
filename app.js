@@ -33,44 +33,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // ==================== ROUTES ====================
 
-// TODO: Uncomment this after Member 4 completes routes
-// app.use('/', taskRoutes);
-
-// Temporary test route (DELETE THIS after routes are ready)
-app.get("/", (req, res) => {
-  res.send(`
-        <html>
-            <head>
-                <title>To-Do App - Server Running</title>
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        max-width: 800px;
-                        margin: 50px auto;
-                        padding: 20px;
-                        text-align: center;
-                    }
-                    h1 { color: #2ecc71; }
-                    .info { 
-                        background: #ecf0f1; 
-                        padding: 20px; 
-                        border-radius: 5px;
-                        margin: 20px 0;
-                    }
-                </style>
-            </head>
-            <body>
-                <h1>✅ To-Do App Server is Running!</h1>
-                <div class="info">
-                    <p><strong>Port:</strong> ${PORT}</p>
-                    <p><strong>Status:</strong> Ready for development</p>
-                    <p><strong>Next Step:</strong> Member 2 can start building the data model</p>
-                </div>
-                <p>This is a temporary test route. It will be replaced when routes are implemented.</p>
-            </body>
-        </html>
-    `);
-});
+app.use("/", taskRoutes);
 
 // ==================== 404 HANDLER ====================
 
