@@ -1,82 +1,123 @@
 # To-Do List Application
 
-A simple file-based to-do list application built with Node.js, Express, and EJS.
+A file-based To-Do List web application built with Node.js, Express, EJS, and JSON storage.
+
+## Project Status
+
+Completed.
 
 ## Team Members
 
-1. **Shemaiah Yaba-Shiaka** - Project Setup & Core Infrastructure (Team Lead)
-2. **Samuel Ola** - Data Model & File Operations
-3. **Temitope Mercy** - Task Controller (Business Logic)
-4. **Iyanuoluwa Samuel James** - Routes Module
-5. **Damife** - EJS Views & Templates
-6. **Shittu Iqmat Titilope** - Styling, Utilities & Documentation
+1. Shemaiah Yaba-Shiaka (@ShemaiahYaba) - Team Lead, Project Setup and Integration
+2. Samuel Ola (@samuelola-dev) - Data Model and File Operations
+3. Temitope Mercy (@temitope879) - Task Controller (Business Logic)
+4. Iyanuoluwa Samuel James (@damife) - Routes Module
+5. @DonBrains and ShemaiahYaba - EJS Views and Templates
+6. @omonugrantdel, @Hikmah581, @ShemaiahYaba - Styling, Utilities, and Documentation
 
-## Technologies Used
+## Tech Stack
 
-- **Runtime:** Node.js
-- **Framework:** Express.js
-- **View Engine:** EJS
-- **Module System:** ES Modules (ESM)
-- **Data Storage:** JSON file with `fs` module
-- **Package Manager:** npm
-- **Version Control:** Git & GitHub
+- Node.js
+- Express.js
+- EJS
+- ES Modules
+- JSON + fs/promises
+- npm
 
-## Installation
-
-1. Clone the repository:
+## Repository
 
 ```bash
 git clone https://github.com/ShemaiahYaba/Todo-App-TechCrush-Mini-Project.git
 cd Todo-App-TechCrush-Mini-Project
 ```
 
-2. Install dependencies:
+## Installation and Run
 
 ```bash
-   npm install
+npm install
+npm start
 ```
 
-3. Start the server:
+For auto-restart in development:
 
 ```bash
-   npm start
+npm run dev
 ```
 
-4. Open your browser and navigate to: http://localhost:3000
+Open: `http://localhost:3000`
 
-## Project Status
+## Features Implemented
 
-✅ Day 1-2: Project setup complete  
-🔄 Day 3-5: Data model and backend logic (in progress)  
-⏳ Day 6-8: Routes and controllers  
-⏳ Day 9-10: Views and styling  
-⏳ Day 11-14: Integration, testing, and final documentation
+- Create a task
+- View all tasks
+- Edit a task
+- Delete a task
+- Toggle task status (pending/completed)
+- Filter tasks by status (All, Pending, Completed)
+- LIFO default listing (newest first)
+- Date separation in task list
+- Priority support (low, medium, high)
 
-## API Routes
+## Data Storage
 
-- `GET /` - View all tasks
-- `GET /add` - Display add task form
-- `POST /add` - Create new task
-- `GET /edit/:id` - Display edit task form
+- Uses `data/tasks.json` as persistent storage
+- Includes more than 20 sample tasks
+
+Task object format:
+
+```json
+{
+  "id": "string",
+  "title": "string",
+  "description": "string",
+  "status": "pending | completed",
+  "priority": "low | medium | high",
+  "createdAt": "ISO date string",
+  "updatedAt": "ISO date string"
+}
+```
+
+## Routes
+
+- `GET /` - Show all tasks (supports `?status=pending` and `?status=completed`)
+- `GET /add` - Show add task form
+- `POST /add` - Create task
+- `GET /edit/:id` - Show edit task form
 - `POST /edit/:id` - Update task
 - `GET /delete/:id` - Delete task
-- `GET /toggle/:id` - Toggle task status (pending/completed)
+- `GET /toggle/:id` - Toggle task status
 
-## Features
+## Project Structure
 
-- ✅ Create tasks
-- ✅ View all tasks
-- ✅ Edit tasks
-- ✅ Delete tasks
-- ✅ Toggle task status
-- ✅ Filter by status (Pending/Completed)
-- ✅ Priority levels (Low/Medium/High)
+```text
+todo-app/
+|-- app.js
+|-- controllers/
+|   `-- taskController.js
+|-- models/
+|   `-- taskModel.js
+|-- routes/
+|   `-- tasks.js
+|-- views/
+|   |-- index.ejs
+|   |-- add.ejs
+|   |-- edit.ejs
+|   |-- 404.ejs
+|   `-- partials/
+|       |-- header.ejs
+|       `-- footer.ejs
+|-- public/
+|   |-- css/style.css
+|   `-- js/main.js
+|-- utils/helpers.js
+`-- data/tasks.json
+```
 
 ## License
 
-MIT License - Free to use for educational purposes.
+MIT License (educational use).
 
----
+## Bootcamp
 
-**Deadline:** February 14, 2026  
-**Bootcamp:** TechCrush Backend Engineering Track
+TechCrush Backend Engineering Track  
+Deadline: February 14, 2026
